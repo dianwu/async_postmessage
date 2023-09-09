@@ -1,4 +1,8 @@
-import { setupMessageHandler, awaitPostMessage } from "messagehandler";
+import {
+  setupMessageHandler,
+  awaitPostMessage,
+  setHostName,
+} from "messagehandler";
 
 setupMessageHandler({
   name: "main",
@@ -18,13 +22,12 @@ async function postMessage() {
   console.log("postMessage result", result);
 }
 
-async function clickHandler(e) {
+function clickHandler(e) {
   const { fn } = e.target.dataset;
 
   switch (fn) {
     case "postMessage":
-      await postMessage();
-      await postMessage();
+      postMessage();
       break;
     default:
   }
