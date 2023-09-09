@@ -5,7 +5,7 @@ const callbackPromise = {};
 let messageIndex = 0;
 function getMessageIndex() {
   messageIndex += 1;
-  return "msg_" + messageIndex;
+  return "callbackIndex_" + messageIndex;
 }
 
 export function postMessage(target, opt) {
@@ -51,7 +51,7 @@ function onMessage(evt) {
     postMessage(evt.source, {
       ...response,
       messageType: MESSAGE_TYPE.CALLBACK,
-      msgIndex,
+      callbackIndex: msgIndex,
     });
   }
 
