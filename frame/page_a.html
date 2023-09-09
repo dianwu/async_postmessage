@@ -1,7 +1,15 @@
 <html>
   <head>
     <title>Page A</title>
-  </head>
+    <script type="importmap">
+      {
+        "imports": {
+          "messagehandler": "../js/messagehandler.js"
+        }
+      }
+    </script>
+  <script defer type="module" src="./page.js"></script>
+</head>
   <body>
     <h1>Page A</h1>
   </body>

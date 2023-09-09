@@ -1,11 +1,22 @@
 <html>
-  <head>
-    <title>Page B</title>
-  </head>
-  <body>
-    <h1>Href Attribute Example</h1>
-    <p>
-      <a href="https://www.freecodecamp.org/contribute/">The freeCodeCamp Contribution Page</a> shows you how and where you can contribute to freeCodeCamp's community and growth.
-    </p>
-  </body>
+
+<head>
+  <title>Page A</title>
+
+</head>
+
+<body>
+  <h1>Page A</h1>
+</body>
+<script type="text/javascript">
+  window.addEventListener("message", (msgEvt) => {
+    const { message, messageId, type } = msgEvt.data;
+    if (type !== 'awaitppostmessage') {
+      return;
+    }
+    console.log(`[main -> iframe][${messageId}]: ${message}`);
+    msgEvt.source.postMessage({ message: `Hi main, ${Date.now()}.`, messageId }, location.origin);
+  });
+</script>
+
 </html>

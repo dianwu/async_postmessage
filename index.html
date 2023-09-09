@@ -1,11 +1,24 @@
 <html>
-  <head>
-    <title>Await postmessage</title>
-  </head>
-  <body>
-    <h1>Await postmessage</h1>
-    <div>
-        <iframe src="./frame/page_a.html" />
-    </div>
-  </body>
+
+<head>
+  <title>Await postmessage</title>
+  <link href="index.css" rel="stylesheet" />
+  <script type="importmap">
+  {
+  "imports": {
+  "messagehandler": "./js/messagehandler.js"
+  }
+  }
+  </script>
+  <script defer type="module" src="./js/index.js"></script>
+</head>
+
+<body>
+  <h1>Await postmessage</h1>
+  <div class="content-box">
+    <input type="button" value="post message" data-fn="postMessage" />
+    <iframe src="./frame/page_a.html"></iframe>
+  </div>
+</body>
+
 </html>
