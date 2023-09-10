@@ -11,11 +11,15 @@
 <script type="text/javascript">
   window.addEventListener("message", (msgEvt) => {
     const { message, messageId, type } = msgEvt.data;
-    if (type !== 'awaitppostmessage') {
+    if (type !== 'awaitpostmessage') {
       return;
     }
     console.log(`[main -> iframe][${messageId}]: ${message}`);
-    msgEvt.source.postMessage({ message: `Hi main, ${Date.now()}.`, messageId }, location.origin);
+    const messagePort = msgEvt.ports?.[0];
+
+    if (messagePort) {
+      messagePort.postMessage({ message: `Hi main, ${Date.now()}.`, messageId });
+    }
   });
 </script>
 
